@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Mupsic</string>
+    <string name="title_activity_principal">Principal</string>
+    <string name="title_activity_localizacion_contacto">LocalizacionContacto</string>
+</resources>
