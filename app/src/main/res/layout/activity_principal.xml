@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Blog"
-        android:background="@color/colorAccent"
+        android:background="@drawable/btn_round"
         android:layout_marginTop="300dp"/>
 
 

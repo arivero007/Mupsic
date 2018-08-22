@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -30,6 +31,7 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
     private TextView txtWeb;
     private ListView listView;
     private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,10 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         btnWeb.setOnClickListener(this);
         btnBlog = (Button)findViewById(R.id.btn_blog);
         btnBlog.setOnClickListener(this);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         final String[] opciones = {"Partituras","Localización y Contacto"};
 
