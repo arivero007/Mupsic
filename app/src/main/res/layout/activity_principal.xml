@@ -11,29 +11,30 @@
     android:layout_height="match_parent"
     tools:context=".Principal">
 
-    <TextView
-        android:id="@+id/text_web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="Pulsa el boton para ir a la página web"/>
     <Button
         android:id="@+id/btn_web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/btn_round"
-        android:layout_marginTop="380dp"
+        android:layout_marginHorizontal="195dp"
+        android:textSize="17dp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="410dp"
         android:text="Web"/>
     <Button
         android:id="@+id/btn_blog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="75dp"
         android:text="Blog"
+        android:textSize="17dp"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/btn_round"
-        android:layout_marginTop="300dp"/>
+        android:layout_marginTop="410dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="380dp"
+        android:src="@drawable/mupsic_portada"/>
 
 
 </RelativeLayout>

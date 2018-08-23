@@ -1,7 +1,9 @@
 package getnetwork.erictelm2m.com.mupsic;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -43,7 +46,7 @@ public class LocalizacionContacto extends FragmentActivity implements OnMapReady
 
 
         LatLng mupsic = new LatLng(43.296244, -2.885613);
-        map.addMarker(new MarkerOptions().position(mupsic).title("Mupsic"));
+        map.addMarker(new MarkerOptions().position(mupsic).title("Mupsic").snippet("Academia de música"));
         float zoomLevel = 16.0f;
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(mupsic,zoomLevel));
        /*

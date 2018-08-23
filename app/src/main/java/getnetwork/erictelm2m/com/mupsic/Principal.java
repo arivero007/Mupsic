@@ -1,6 +1,8 @@
 package getnetwork.erictelm2m.com.mupsic;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -28,7 +30,6 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
 
     private Button btnWeb;
     private Button btnBlog;
-    private TextView txtWeb;
     private ListView listView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -37,19 +38,29 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
         listView = (ListView)findViewById(R.id.list_view);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        txtWeb  = (TextView)findViewById(R.id.text_web);
         btnWeb = (Button)findViewById(R.id.btn_web);
         btnWeb.setOnClickListener(this);
         btnBlog = (Button)findViewById(R.id.btn_blog);
         btnBlog.setOnClickListener(this);
+        SharedPreferences pref = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+        if(!pref.getBoolean("appInstalled",false)) {
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putBoolean("appInstalled",true);
+            editor.commit();
+            Intent intent = new Intent(Principal.this, MainActivity.class);
+            startActivity(intent);
+        }
 
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        final String[] opciones = {"Partituras","Localización y Contacto"};
+
+        final String[] opciones = {"Partituras","Videos","Localización y Contacto"};
 
         listView.setAdapter(new ArrayAdapter(this,android.R.layout.simple_list_item_1,android.R.id.text1,opciones));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -59,7 +70,12 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
                 Intent intent;
 
                 switch (i){
-                    case (1):
+
+                    case (0):
+                        intent = new Intent(Principal.this, Partituras.class);
+                        startActivity(intent);
+                        break;
+                    case (2):
                         intent = new Intent(Principal.this, LocalizacionContacto.class);
                         startActivity(intent);
                         break;
@@ -92,14 +108,6 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
                 } else {
                     drawerLayout.openDrawer(listView);
                 }
-                return true;
-
-            case R.id.settings:
-                txtWeb.setText("Entrando ajustes");
-                return true;
-
-            case R.id.lang:
-                txtWeb.setText("Cambiando idioma");
                 return true;
 
             default:
