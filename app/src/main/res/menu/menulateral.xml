@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".Main">
 
     <item
         android:id="@+id/settings"
-        android:title="ajustes"
-        android:orderInCategory="2"/>
-    <item
-        android:id="@+id/lang"
-        android:title="idioma"
-        android:orderInCategory="1"/>
+        android:title="@string/setings"
+        app:showAsAction="never"/>
 </menu>

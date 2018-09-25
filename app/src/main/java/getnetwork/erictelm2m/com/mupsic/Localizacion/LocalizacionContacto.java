@@ -1,4 +1,4 @@
-package getnetwork.erictelm2m.com.mupsic;
+package getnetwork.erictelm2m.com.mupsic.Localizacion;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,6 +21,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import getnetwork.erictelm2m.com.mupsic.R;
 
 public class LocalizacionContacto extends FragmentActivity implements OnMapReadyCallback {
 

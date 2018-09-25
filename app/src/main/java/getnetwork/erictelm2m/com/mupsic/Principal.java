@@ -3,28 +3,20 @@ package getnetwork.erictelm2m.com.mupsic;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import getnetwork.erictelm2m.com.mupsic.ListadoPartituras.Partituras;
+import getnetwork.erictelm2m.com.mupsic.Localizacion.LocalizacionContacto;
 
 public class Principal extends AppCompatActivity implements View.OnClickListener{
 
@@ -32,7 +24,7 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
     private Button btnBlog;
     private ListView listView;
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +47,12 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
             startActivity(intent);
         }
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
 
         final String[] opciones = {"Partituras","Videos","Localización y Contacto"};
 
@@ -89,13 +83,15 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         });
     }
 
+/*No es necesario un menu izquierdo
+
     public boolean onCreateOptionsMenu(Menu menu){
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menulateral, menu);
         return true;
 }
-
+*/
     public boolean onOptionsItemSelected(MenuItem item){
 
         int id = item.getItemId();

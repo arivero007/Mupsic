@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocalizacionContacto">
+    tools:context=".Localizacion.LocalizacionContacto">
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +16,7 @@
         android:layout_height="350dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        tools:context=".MapsActivity" />
+        tools:context=".Localizacion.MapsActivity" />
 
 
     <TextView

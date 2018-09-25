@@ -14,17 +14,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".MainActivity"
-            android:label="Mupsic"
-            android:logo="@drawable/ic_menu_black_24dp"
-            android:theme="@style/AppTheme" />
+            android:label="Mupsic" />
         <activity
             android:name=".Principal"
-            android:label="Mupsic"
-            android:logo="@drawable/ic_menu_black_24dp"
-            android:theme="@style/AppTheme">
+            android:label="Mupsic">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,8 +28,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LocalizacionContacto"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".Localizacion.LocalizacionContacto"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -47,9 +43,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".Localizacion.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Partituras"></activity>
+        <activity android:name=".ListadoPartituras.Partituras" />
+        <activity android:name=".ListadoPartituras.ListaPartituras" />
+        <activity android:name=".Utils.Adaptador"></activity>
     </application>
 
 </manifest>
