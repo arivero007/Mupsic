@@ -55,7 +55,8 @@
         <activity android:name=".ListadoPartituras.Partituras" />
         <activity android:name=".Utils.ImageUtils" />
         <activity android:name=".Graficos.GraficosActivity" />
-        <activity android:name=".Graficos.GraficosActivityBtn"></activity>
+        <activity android:name=".Graficos.GraficosActivityBtn" />
+        <activity android:name=".Graficos.GraphicsDashboard"></activity>
     </application>
 
 </manifest>

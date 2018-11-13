@@ -7,12 +7,18 @@ import android.util.Log;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -31,6 +37,7 @@ public class GraficosActivityBtn extends AppCompatActivity {
 
     private LineChart lineChart;
     private BarChart barChart;
+    private PieChart pieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,7 @@ public class GraficosActivityBtn extends AppCompatActivity {
 
         //lineChart = findViewById(R.id.linechart);
         barChart = findViewById(R.id.barchart);
+        pieChart = findViewById(R.id.piechart);
 
         JSONObject track = new JSONObject();
         JSONObject gps = new JSONObject();
@@ -57,6 +65,7 @@ public class GraficosActivityBtn extends AppCompatActivity {
 
         getSpeedTimeValues(track);
         createSpeedTimeBar();
+        createPieChart();
 
     }
 
@@ -106,5 +115,44 @@ public class GraficosActivityBtn extends AppCompatActivity {
         barChart.setData(data);
         barChart.setFitBars(true); // make the x-axis fit exactly all bars
         barChart.invalidate(); // refresh
+
+        final String[] speeds = new String[]{"0km","10km","20km","30km","40km","50km"};
+
+        IAxisValueFormatter formatter = new IAxisValueFormatter() {
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return speeds[(int) value];
+            }
+
+            // we don't draw numbers, so no decimal digits needed
+            public int getDecimalDigits() {  return 0; }
+        };
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setValueFormatter(formatter);
+    }
+
+    public void createPieChart(){
+        List<PieEntry> entries = new ArrayList<>();
+
+        entries.add(new PieEntry(18.5f, "Green"));
+        entries.add(new PieEntry(26.7f, "Yellow"));
+        entries.add(new PieEntry(24.0f, "Red"));
+        entries.add(new PieEntry(30.8f, "Blue"));
+
+        PieDataSet set = new PieDataSet(entries, "Election Results");
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add(getResources().getColor(R.color.colorGreen));
+        colors.add(getResources().getColor(R.color.colorYellow));
+        colors.add(getResources().getColor(R.color.colorAccent));
+        colors.add(getResources().getColor(R.color.colorLightBlue));
+
+        set.setColors(colors);
+        PieData data = new PieData(set);
+        pieChart.setData(data);
+        pieChart.invalidate(); // refresh
     }
 }
