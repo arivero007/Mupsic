@@ -4,6 +4,7 @@ public class ListaPartituras {
 
     private String titulo;
     private String descripcion;
+    private String direccion;
 
     public ListaPartituras (String titulo, String descripcion) {
 
@@ -17,5 +18,12 @@ public class ListaPartituras {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+    public void setDireccion(String dir){
+        this.direccion = dir;
     }
 }

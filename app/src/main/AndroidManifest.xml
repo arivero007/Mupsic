@@ -7,6 +7,13 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -46,8 +53,9 @@
             android:name=".Localizacion.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".ListadoPartituras.Partituras" />
-        <activity android:name=".ListadoPartituras.ListaPartituras" />
-        <activity android:name=".Utils.Adaptador"></activity>
+        <activity android:name=".Utils.ImageUtils" />
+        <activity android:name=".Graficos.GraficosActivity" />
+        <activity android:name=".Graficos.GraficosActivityBtn"></activity>
     </application>
 
 </manifest>

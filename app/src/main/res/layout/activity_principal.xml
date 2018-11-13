@@ -37,9 +37,21 @@
         android:textColor="@color/colorWhite"
         android:background="@drawable/btn_round"
         android:layout_marginTop="410dp"/>
+    <Button
+        android:id="@+id/btn_graph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_round"
+        android:layout_marginHorizontal="150dp"
+        android:textSize="17dp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="480dp"
+        android:text="Graph"/>
     <ImageView
+        android:id="@+id/fondo"
         android:layout_width="wrap_content"
         android:layout_height="380dp"
+        android:layout_alignTop="@+id/toolbar"
         android:src="@drawable/mupsic_portada"/>
 
 </RelativeLayout>

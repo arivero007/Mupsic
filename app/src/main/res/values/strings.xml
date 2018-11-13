@@ -7,4 +7,5 @@
     <string name="setings">ajustes</string>
     <string name="titulo_partitura">Titulo:</string>
     <string name="desc_partitura">Autor:</string>
+    <string name="title_activity_image_attachment">ImageAttachment</string>
 </resources>
